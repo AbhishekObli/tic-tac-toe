@@ -18,13 +18,14 @@ def print_board(board):
 
 # get input from user
 def user_Input(board):
-	global game_Running
-	user = int(input("Enter a number between 0-8: "))
-	if (user>=0 and user<=8 and board[user]=="-"):
-		board[user] = current_player
-	else:
-		print("Oops! another player has already conquered the place")
-		return True
+	while True:
+		user = int(input(f"{current_player} - Enter a number between 0-8: "))
+		if (user>=0 and user<=8 and board[user]=="-"):
+			board[user] = current_player
+			return None
+		else:
+			print("Oops! another player has already conquered the place")
+
 
 # check if input is a win
 def check(board,player):
